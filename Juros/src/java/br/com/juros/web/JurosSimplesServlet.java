@@ -40,7 +40,64 @@ public class JurosSimplesServlet extends HttpServlet {
             out.println("<title>Servlet jurosSimplesServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet jurosSimplesServlet at " + request.getContextPath() + "</h1>");
+            
+            //Váriaveis
+            double P = 0; //P = Valor Principal; 
+            double M = 0; //M = Montante
+            double J = 0; //J = Valor do Juros
+            double t=0; //t = Taxa de Juros
+            int n=0; // n = Numero de Periodos
+            int c=0; //c = Variavel de Controle
+            
+            out.println("<div>");
+            out.println("<h1>Juros Simples</h1>");
+            
+            //Formulário a ser exibido
+            out.println("<form>");
+            out.println("<label>Valor Principal: </label><br>");
+            out.println("<input type='text' name='principal'><br>");
+            out.println("<label>Taxa de juros: </label><br>");
+            out.println("<input type='text' name='taxa'><br>");
+            out.println("<label>Número de períodos: </label><br>");
+            out.println("<input type='text' name='periodo'><br>");
+            out.println("<input type='submit' value='Calcular'><br>");
+            out.println("</form>");
+            
+            //Tratamento de Exceção (Caso seja inserida informação errada)
+            try{
+                if (request.getParameter("principal") != null){
+                    P = Double.parseDouble(request.getParameter("principal"));
+                    c++;
+                }
+                if (request.getParameter("taxa") != null){
+                    t = Double.parseDouble(request.getParameter("taxa"));
+                    c++;
+                }
+                if (request.getParameter("periodo") != null){
+                    n = Integer.parseInt(request.getParameter("periodo"));
+                    c++;
+                }
+            }catch (Exception ex){
+                //Mensagem caso algum dado esteja inválido
+                out.println("<h2 style='color: red'>Preencha os campos de maneira correta</h2>");
+            }
+            
+            //Recurso para saber se a taxa foi inserida em porcentagem ou numero decimal
+            if(t > 1){
+                t = t/100;
+            }
+            
+            //Calculo do Juros Simples
+            J = (P * t * n);//será tranformado a porcentagem em numero real, para realização o calculo
+            M = P + J ;
+            
+            
+            //Exibição do juros e do montante se tudo tiver ocorrido normalmente
+            if(c == 3){
+                out.println("<h2>Valor do Juros: R$" + J + "</h2>");
+                out.println("<h2>Montante: R$" + M + "</h2>");
+            }  
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }
