@@ -44,8 +44,9 @@ public class JurosCompostoServlet extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet JurosCompostoServlet</title>");            
+            out.println("<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">");            
             out.println("</head>");
-            out.println("<body>");
+            out.println("<body style='text-align: center'>");
             
             out.println("<form>");
             out.println("");
@@ -62,6 +63,10 @@ public class JurosCompostoServlet extends HttpServlet {
             out.println("Contato " + jurosComposto(C,TJ,T)); 
             out.println("</form>");
             out.println("<p>Valor C:"+C+" Valor TJ:"+TJ+" Valor T:"+T+"</p>");
+            
+            
+            out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>");
+            out.println("<script src=\"js/bootstrap.min.js\"></script>");
             out.println("</body>");
             out.println("</html>");
             
