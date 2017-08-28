@@ -96,7 +96,6 @@ public class JurosSimplesServlet extends HttpServlet {
             if(c == 3){
                 out.println("<h2>Valor do Juros: R$" + J + "</h2>");
                 out.println("<h2>Montante: R$" + M + "</h2>");
-                c = 0;//variavel de controle resetada para proxima execução
             }  
             out.println("</div>");
             out.println("</body>");
