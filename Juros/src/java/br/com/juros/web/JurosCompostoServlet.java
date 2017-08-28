@@ -31,6 +31,11 @@ public class JurosCompostoServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        double C;
+        double TJ;
+        int T;
+        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -40,11 +45,37 @@ public class JurosCompostoServlet extends HttpServlet {
             out.println("<title>Servlet JurosCompostoServlet</title>");            
             out.println("</head>");
             out.println("<body>");
+            
+            out.println("<form>");
+            out.println("<input type=text name=\"CapitalInicial\" >");
+            out.println("<input type=\"submit\" value=\"Submit\">");
+            out.println("</form>");
+            
+            out.println("<p>Teste</p>");
             out.println("<p>Teste</p>");
             out.println("<h1>Servlet JurosCompostoServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
+            
+            C = Double.parseDouble(request.getParameter("CapitalInicial"));
+            
         }
+        
+        
+    }
+    
+    //Ira retornar o montante final
+    public Double jurosComposto(double C, double TJ, int T) {
+    double Montante = 0; //Montante Final
+    double Capital; //Valor inicial da aplicação financeira
+    double TaxaJuros; //Taxa de juros utilizada
+    int Tempo; //Medido em meses;
+    
+    Montante = Capital*(1+TaxaJuros)*(Math.pow(TaxaJuros,Tempo));
+    
+		
+        
+    return Montante;    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
