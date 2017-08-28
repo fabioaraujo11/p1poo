@@ -38,8 +38,9 @@ public class JurosSimplesServlet extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet jurosSimplesServlet</title>");            
+            out.println("<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">");            
             out.println("</head>");
-            out.println("<body>");
+            out.println("<body style='text-align: center'>");
             
             //Váriaveis
             double P = 0; //P = Valor Principal; 
@@ -98,6 +99,8 @@ public class JurosSimplesServlet extends HttpServlet {
                 out.println("<h2>Montante: R$" + M + "</h2>");
             }  
             out.println("</div>");
+            out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>");
+            out.println("<script src=\"js/bootstrap.min.js\"></script>");
             out.println("</body>");
             out.println("</html>");
         }
