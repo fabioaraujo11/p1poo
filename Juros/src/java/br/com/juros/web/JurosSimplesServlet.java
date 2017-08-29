@@ -51,7 +51,7 @@ public class JurosSimplesServlet extends HttpServlet {
             int c=0; //c = Variavel de Controle
             
             out.println("<div>");
-            out.println("<h1>Juros Simples</h1>");
+            out.println("<h1>Cálculo de Juros Simples</h1>");
             
             //Formulário a ser exibido
             out.println("<form>");

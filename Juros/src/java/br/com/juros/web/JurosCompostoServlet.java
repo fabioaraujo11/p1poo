@@ -47,16 +47,16 @@ public class JurosCompostoServlet extends HttpServlet {
             out.println("<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">");            
             out.println("</head>");
             out.println("<body style='text-align: center'>");
+            out.println("<h1>Cálculo de Juros Composto</h1>");
             
             out.println("<form>");
             out.println("");
-            out.println("<h3>Calculo de juros composto em uma aplicação financeira</h3>");
             
-            out.println("<p>Capital inicial</p>");
+            out.println("<p><strong>Capital inicial: </strong></p>");
             out.println("<input type=text name=\"CapitalInicial\" >");
-            out.println("<p>Taxa de juros</p>");
+            out.println("<p><strong>Taxa de juros: </strong></p>");
             out.println("<input type=text name=\"TaxadeJuros\" >");
-            out.println("<p>Tempo de aplicação</p>");
+            out.println("<p><strong>Tempo de aplicação: </strong></p>");
             out.println("<input type=text name=\"TempodeAplicacao\" ><br><br>");
             out.println("<input type=\"submit\" name=\"botao\" value=\"Botão\"></br></br>");
             
