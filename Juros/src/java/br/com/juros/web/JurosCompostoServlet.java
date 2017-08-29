@@ -50,19 +50,26 @@ public class JurosCompostoServlet extends HttpServlet {
             
             out.println("<form>");
             out.println("");
-            out.println("");
+            out.println("<h3>Calculo de juros composto em uma aplicação financeira</h3>");
             
             out.println("<p>Capital inicial</p>");
             out.println("<input type=text name=\"CapitalInicial\" >");
             out.println("<p>Taxa de juros</p>");
             out.println("<input type=text name=\"TaxadeJuros\" >");
             out.println("<p>Tempo de aplicação</p>");
-            out.println("<input type=text name=\"TempodeAplicacao\" >");
-            out.println("<input type=\"submit\" name=\"Botao\" value=\"Submit\" onclick=\"jurosComposto();\"></br></br>");
-            out.println("<input type=\"text\" id=\"txtResultado\" value=\"Resultado\" readonly=\"readonly\">");
-            out.println("Contato " + jurosComposto(C,TJ,T)); 
+            out.println("<input type=text name=\"TempodeAplicacao\" ><br><br>");
+            out.println("<input type=\"submit\" name=\"botao\" value=\"Botão\"></br></br>");
+            
+            if (request.getParameter("botao") != null) 
+            {
+                C = Double.parseDouble(request.getParameter("CapitalInicial"));
+                TJ = Double.parseDouble(request.getParameter("TaxadeJuros"));
+                T = Integer.parseInt(request.getParameter("TempodeAplicacao"));
+                out.println("Resultado de " + T + " meses de aplicação: " + jurosComposto(C,TJ,T));
+            }
+            
             out.println("</form>");
-            out.println("<p>Valor C:"+C+" Valor TJ:"+TJ+" Valor T:"+T+"</p>");
+            
             
             
             out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>");
@@ -78,12 +85,6 @@ public class JurosCompostoServlet extends HttpServlet {
             catch(Exception ex){
                
             }
-            
-            C = Double.parseDouble(request.getParameter("CapitalInicial"));
-            TJ = Double.parseDouble(request.getParameter("TaxadeJuros"));
-            T = Integer.parseInt(request.getParameter("TempodeAplicacao"));
-            
-            
             
             if (request.getParameter("Botao") != null) {
                 out.println("<input type=\"text\" id=\"txtResultado\" readonly value="+ jurosComposto(C,TJ,T)+ ">");
