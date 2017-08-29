@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.DecimalFormat; 
 
 /**
  *
@@ -32,10 +33,15 @@ public class JurosCompostoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        //C= Capital
+        //TJ= Taxa de juros
+        //T = Tempo de aplicação
+        
         double C = 0;
+        double CapitalAnterior = 0;
         double TJ = 0;
         int T = 0;
-        
+        int controle = 0;
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
@@ -60,12 +66,51 @@ public class JurosCompostoServlet extends HttpServlet {
             out.println("<input type=text name=\"TempodeAplicacao\" ><br><br>");
             out.println("<input type=\"submit\" name=\"botao\" value=\"Botão\"></br></br>");
             
+            try{
+                if (request.getParameter("CapitalInicial") != null){
+                    C = Double.parseDouble(request.getParameter("CapitalInicial"));
+                    controle++;
+                }
+                if (request.getParameter("TaxadeJuros") != null){
+                    TJ = Double.parseDouble(request.getParameter("TaxadeJuros"));
+                    controle++;
+                }
+                if (request.getParameter("TempodeAplicacao") != null){
+                    T = Integer.parseInt(request.getParameter("TempodeAplicacao"));
+                    controle++;
+                }
+                
+            }catch (Exception ex){
+                //Mensagem caso algum dado esteja inválido
+                out.println("<h2 style='color: red'>Preencha os campos de maneira correta</h2>");
+                
+            }
+            
             if (request.getParameter("botao") != null) 
             {
-                C = Double.parseDouble(request.getParameter("CapitalInicial"));
-                TJ = Double.parseDouble(request.getParameter("TaxadeJuros"));
-                T = Integer.parseInt(request.getParameter("TempodeAplicacao"));
-                out.println("Resultado de " + T + " meses de aplicação: " + jurosComposto(C,TJ,T));
+                
+                if(controle==3){
+                    
+                    
+                    out.println("Resultado de " + T + " meses de aplicação: " + Math.round(((C*Math.pow((1+TJ),T)))*100)/100.00);
+                    out.println("<br><br>");
+                    
+                    out.println("<table align='center' border= '1'>");
+                    out.println("<tr><th>Indice</th><th>Capital</th><th>Juros</th></tr>");
+                    for(int i=1;i<=T;i++){
+                        CapitalAnterior = C;
+                        C = (C*Math.pow((1+TJ),1));
+                        
+                        out.println("<tr><td>"+i+"</td><td>"+Math.round((C)*100)/100.00+"</td><td>"+Math.round((C-CapitalAnterior)*100)/100.00+"</td></tr>");
+                        
+                    }
+                    out.println("</table>");
+        
+                    
+                }else if(controle!=3){
+                    out.println("<p>"+controle+"</p>");
+                    out.println("<h2 style='color: red'>Preencha os campos de maneira correta</h2>");
+                }
             }
             
             out.println("</form>");
@@ -79,38 +124,10 @@ public class JurosCompostoServlet extends HttpServlet {
             
             int Botao;
             
-            try{
-                
-            }
-            catch(Exception ex){
-               
-            }
-            
-            if (request.getParameter("Botao") != null) {
-                out.println("<input type=\"text\" id=\"txtResultado\" readonly value="+ jurosComposto(C,TJ,T)+ ">");
-            } else {
-                // Form is not submitted.
-            }
-            
         }
         
         
     }
-    
-    //Ira retornar o montante final
-    public double jurosComposto(double C, double TJ, int T) {
-        double Montante;//Montante Final
-        
-        
-        //C= Capital
-        //TJ= Taxa de juros
-        //T = Tempo de aplicação
-        Montante = C*Math.pow((1+TJ),T);
-
-        //Retorna o juros compostos da aplicação
-        return Montante;
-    }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
