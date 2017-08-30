@@ -41,26 +41,57 @@ public class HomeServlet extends HttpServlet {
             out.println("<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">");            
             out.println("</head>");
             out.println("<body style='text-align: center'>");
-            out.println("<h1>Projeto 1 - Programação Orientada a Objeto</h1>");
+            
+            out.println("<h1>Calculadora de Juros - Simples e Composto</h1>");
             out.println("<hr />");
-            out.println("<h1>Integrantes:<h1/>");
-            out.println("<img src=imagem/ff.jpg style=\"width:100px;height:100px;\">");
-            out.println("Fabio da Silva Araujo <br/>");
-            out.println("<img src=imagem/gc.JPG style=\"width:100px;height:100px;\">");
-            out.println("Gustavo Henrique Callipo Cavalcanti <br/>");
-            out.println("<img src=imagem/hm.jpg style=\"width:100px;height:100px;\">");
-            out.println("Henrique Melo Santos <br/>");
-            out.println("<img src=imagem/lm>");
-            out.println("Luiz Maciel Segura dos Santos <br/>");
-            out.println("<img src=imagem/RS style=\"width:100px;height:100px;\">");
-            out.println("Rodrigo Soares Almeida <br/>");
-            out.println("<img src=imagem/lm style=\"width:100px;height:100px;\">");
-            out.println("VItor Hugo Borges Yugulis <br/>");
-            out.println("<hr>");    
+            
+              
             out.println("<ul class=\"nav nav-tabs nav-justified\">");
-            out.println("<a href=\"jurossimples.html\"><button type=\"button\" class=\"btn btn-default navbar-btn\">Juros Simples</button></a>");
-            out.println("<a href=\"juroscomposto.html\"><button type=\"button\" class=\"btn btn-default navbar-btn\">Juros Composto</button></a>");
+            out.println("<h2>Juros Simples</h2>");
+            out.println("<p> Os juros simples eram utilizados nas situações de curto prazo."
+                    + " Hoje não utilizamos a capitalização baseada no regime simples, mas,"
+                    + " de qualquer forma, vamos entender como ele funciona."
+                    + " No sistema de capitalização simples, os juros são calculados com base no"
+                    + " valor da dívida ou da aplicação. </p>");
+            out.println("<a  href=\"jurossimples.html\"><button type=\"button\" class=\"btn btn-default navbar-btn\">Calcular Juros Simples</button></a>");
+            out.println("<h2>Juros Composto</h2>");
+            out.println("<p>O atual sistema financeiro utiliza o regime de juros compostos,"
+                    + " pois ele oferece uma maior rentabilidade"
+                    + " em que o valor dos rendimentos torna-se fixo. O juro "
+                    + "composto incide mês a mês de acordo com o somatório acumulativo do capital "
+                    + "com o rendimento mensal, isto é, prática do juro sobre juro. </p>");
+            out.println("<a href=\"juroscomposto.html\"><button type=\"button\" class=\"btn btn-default navbar-btn\">Calcular Juros Composto</button></a>");
             out.println("</ul>");
+            
+            out.println("<hr>");  
+            
+            out.println("<h2>Integrantes:</h2>");
+            
+            out.println("<div class='col-sm-3' >");
+            out.println("<img src='imagem/fs.jpg'  style=\"width:100px;height:120px\">");
+            out.println("<figcaption>Fabio da Silva</figcaption>");
+            out.println("</div>");
+            
+            out.println("<div class='col-sm-2' >");
+            out.println("<img src='imagem/gh.jpg' style=\"width:100px;height:120px;\">");
+            out.println("<figcaption>Gustavo Henrique</figcaption> ");
+            out.println("</div>");
+            
+            out.println("<div class='col-sm-2'>");
+            out.println("<img src='imagem/hm.jpg' style=\"width:100px;height:120px;\">");
+            out.println("<figcaption>Henrique Melo</figcaption> ");
+            out.println("</div>");
+            
+            out.println("<div class='col-sm-2' >");
+            out.println("<img src='imagem/lm.png' style=\"width:100px;height:120px;\">");
+            out.println("<figcaption>Luiz Maciel</figcaption> ");
+            out.println("</div>");
+            
+            out.println("<div class='col-sm-3' >");
+            out.println("<img src='imagem/vh.jpg' style=\"width:100px;height:120px;\">");
+            out.println("<figcaption>Vitor Hugo</figcaption>");
+            out.println("</div>");
+            
             out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>");
             out.println("<script src=\"js/bootstrap.min.js\"></script>");
             out.println("</body>");
