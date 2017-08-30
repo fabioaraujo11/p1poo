@@ -55,7 +55,7 @@ public class JurosCompostoServlet extends HttpServlet {
             out.println("<body>");
             out.println("<div>");
             out.println("<a style='float: left' href=\"homeservlet.html\"><button type=\"button\" class=\"btn btn-default navbar-btn\">Voltar</button></a>");
-            out.println("<h1 style='text-align: center '>Cálculo de Juros Simples</h1>");
+            out.println("<h1 style='text-align: center '>Cálculo de Juros Composto</h1>");
             out.println("<hr>");
             out.println("</div>");
             
