@@ -40,8 +40,12 @@ public class JurosSimplesServlet extends HttpServlet {
             out.println("<title>Servlet jurosSimplesServlet</title>");            
             out.println("<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">");            
             out.println("</head>");
-            out.println("<body style='text-align: center'>");
-            
+            out.println("<body>");
+            out.println("<div>");
+            out.println("<a style='float: left' href=\"homeservlet.html\"><button type=\"button\" class=\"btn btn-default navbar-btn\">Voltar</button></a>");
+            out.println("<h1 style='text-align: center '>Cálculo de Juros Simples</h1>");
+            out.println("<hr>");
+            out.println("</div>");
             //Váriaveis
             double P = 0; //P = Valor Principal; 
             double M = 0; //M = Montante
@@ -50,8 +54,9 @@ public class JurosSimplesServlet extends HttpServlet {
             int n=0; // n = Numero de Periodos
             int c=0; //c = Variavel de Controle
             
-            out.println("<div>");
-            out.println("<h1>Cálculo de Juros Simples</h1>");
+            out.println("<div style='text-align: center'>");
+            
+            
             
             //Formulário a ser exibido
             out.println("<form>");
@@ -61,7 +66,7 @@ public class JurosSimplesServlet extends HttpServlet {
             out.println("<input type='text' name='taxa'><br>");
             out.println("<label>Número de períodos: </label><br>");
             out.println("<input type='text' name='periodo'><br>");
-            out.println("<input type='submit' value='Calcular'><br>");
+            out.println("<input type='submit' value='Calcular' class=\"btn btn-default navbar-btn\"><br>");
             out.println("</form>");
             
             //Tratamento de Exceção (Caso seja inserida informação errada)
