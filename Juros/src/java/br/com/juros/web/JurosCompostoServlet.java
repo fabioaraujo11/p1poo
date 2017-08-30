@@ -52,19 +52,24 @@ public class JurosCompostoServlet extends HttpServlet {
             out.println("<title>Servlet JurosCompostoServlet</title>");            
             out.println("<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">");            
             out.println("</head>");
-            out.println("<body style='text-align: center'>");
-            out.println("<h1>Cálculo de Juros Composto</h1>");
+            out.println("<body>");
+            out.println("<div>");
+            out.println("<a style='float: left' href=\"homeservlet.html\"><button type=\"button\" class=\"btn btn-default navbar-btn\">Voltar</button></a>");
+            out.println("<h1 style='text-align: center '>Cálculo de Juros Simples</h1>");
+            out.println("<hr>");
+            out.println("</div>");
             
             out.println("<form>");
             out.println("");
             
+            out.println("<div style='text-align: center'>");
             out.println("<p><strong>Capital inicial: </strong></p>");
             out.println("<input type=text name=\"CapitalInicial\" >");
             out.println("<p><strong>Taxa de juros: </strong></p>");
             out.println("<input type=text name=\"TaxadeJuros\" >");
             out.println("<p><strong>Tempo de aplicação: </strong></p>");
             out.println("<input type=text name=\"TempodeAplicacao\" ><br><br>");
-            out.println("<input type=\"submit\" name=\"botao\" value=\"Calcular\"></br></br>");
+            out.println("<input type=\"submit\" name=\"botao\" value=\"Calcular\" class=\"btn btn-default navbar-btn\"></br></br>");
             
             try{
                 if (request.getParameter("CapitalInicial") != null){
@@ -114,6 +119,7 @@ public class JurosCompostoServlet extends HttpServlet {
             }
             
             out.println("</form>");
+            out.println("</div>");
             
             
             
@@ -123,6 +129,8 @@ public class JurosCompostoServlet extends HttpServlet {
             out.println("</html>");
             
             int Botao;
+            
+            
             
         }
         
