@@ -102,8 +102,8 @@ public class JurosCompostoServlet extends HttpServlet {
                     out.println("Resultado de " + T + " meses de aplicação: " + Math.round(((C*Math.pow((1+TJ),T)))*100)/100.00 + " com taxa de juros igual a: "+TJ*100+"%");
                     out.println("<br><br>");
                     
-                    out.println("<table align='center' border= '1'>");
-                    out.println("<tr><th>Indice</th><th>Capital</th><th>Juros</th></tr>");
+                    out.println("<table width='200' align='center' border= '1'>");
+                    out.println("<tr ><th style='text-align: center' >Indice</th><th style='text-align: center'>Capital</th><th style='text-align: center'>Juros</th></tr>");
                     for(int i=1;i<=T;i++){
                         CapitalAnterior = C;
                         C = (C*Math.pow((1+TJ),1));
