@@ -64,7 +64,7 @@ public class JurosCompostoServlet extends HttpServlet {
             out.println("<input type=text name=\"TaxadeJuros\" >");
             out.println("<p><strong>Tempo de aplicação: </strong></p>");
             out.println("<input type=text name=\"TempodeAplicacao\" ><br><br>");
-            out.println("<input type=\"submit\" name=\"botao\" value=\"Botão\"></br></br>");
+            out.println("<input type=\"submit\" name=\"botao\" value=\"Calcular\"></br></br>");
             
             try{
                 if (request.getParameter("CapitalInicial") != null){
@@ -90,9 +90,11 @@ public class JurosCompostoServlet extends HttpServlet {
             {
                 
                 if(controle==3){
-                    
-                    
-                    out.println("Resultado de " + T + " meses de aplicação: " + Math.round(((C*Math.pow((1+TJ),T)))*100)/100.00);
+                    if (TJ>1){
+                        TJ = TJ/100;
+                    }
+                    out.println("Capital Inicial "+C+"<br><br>");
+                    out.println("Resultado de " + T + " meses de aplicação: " + Math.round(((C*Math.pow((1+TJ),T)))*100)/100.00 + " com taxa de juros igual a: "+TJ*100+"%");
                     out.println("<br><br>");
                     
                     out.println("<table align='center' border= '1'>");
@@ -107,10 +109,8 @@ public class JurosCompostoServlet extends HttpServlet {
                     out.println("</table>");
         
                     
-                }else if(controle!=3){
-                    out.println("<p>"+controle+"</p>");
-                    out.println("<h2 style='color: red'>Preencha os campos de maneira correta</h2>");
                 }
+                
             }
             
             out.println("</form>");
